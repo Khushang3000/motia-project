@@ -10,3 +10,6 @@ dist
 
 #idea_app
 idea_app
+
+.gitignore
+.env
