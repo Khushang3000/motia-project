@@ -85,6 +85,9 @@ export const handler = async (req: any, {emit, logger, state}:any )=>{
         }//now after we added this subscriber, when we go to the motia workbench/tracing, we can see details like the state's data(remember state gets passed down in each step)
         //the job is created, it also emits a topic and i can listen for that topic(prolly later in the next step)
         //now in next commit we'll work on the step 2 of this application.
+        // now in step2 we want to evaluate whether the channel exists or not, for that we'll have to call the youtube api, we can just install some packages from youtube, have a env variable, then prolly
+        //so in this step youtube api is called and we'll emit event yt.channel.resolved.`
+        //so see the env file and then go to the 02-resolve-channel.step.ts
     } catch (error: any) {
         logger.error('Error in Submission handler', {error: error.message})        
         return {

@@ -6,6 +6,7 @@ venv
 .mermaid
 dist
 *.pyc
+.gitignore
 
 #idea_app
 idea_app
