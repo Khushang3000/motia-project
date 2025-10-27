@@ -13,6 +13,7 @@ export const config: EventConfig = {
     subscribes: ["yt.submit"],
     emits: ["yt.channel.resolved", "yt.channel.error"],
     
+    
 };
 
 //here we don't have a request as this is an event and it's not handling the api.but we'll have the eventData.
@@ -85,7 +86,16 @@ export const handler = async (eventData: any, {emit, logger, state}:any )=>{
             status: "Failed",
             error: "Channel not found"
             
-        })
+            })
+            //if channelId was not found then we emit error
+            await emit({
+                topic: "yt.channel.error",
+                data: {
+                    jobId,
+                    email,
+                }
+            })
+            return;
         }
 
         //if we found the channel and data then we emit 
@@ -93,10 +103,14 @@ export const handler = async (eventData: any, {emit, logger, state}:any )=>{
             topic: "yt.channel.resolved",
             data: {
                 jobId,
+                channelId,
+                channelName,
                 email,
             }
         })//now we have emitted an event, and also added the api keys in the env variables, btw, instead of openai api key we're using gemini,
         //now in next commit we'll work on the next step.
+        // so now i have added the api key n stuff., also in the if statement above we weren't emitting anything before but now we are and also returning so that no other event emits.
+        //now let's move to step 3.
 
         return;
         
