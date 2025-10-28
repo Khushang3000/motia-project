@@ -3,7 +3,7 @@ import { z } from 'zod';
 
 
 // STEP-2: converting yt channel(get it through state) to channelId through, using youtube data api.
-export const config: EventConfig = {
+export const config: any = {
     name: "ResolveChannel",
     type: "event",//type api doesn't exist for this one
     // path: "/submit",//path and method don't make sense in this one.

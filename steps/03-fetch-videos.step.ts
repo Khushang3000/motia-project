@@ -2,7 +2,7 @@ import {EventConfig} from 'motia'
 
 // STEP-3: retrieves the latest 5 videos from the channelId resolved in the last step.
 
-export const config: EventConfig = {
+export const config = {
     name: "fetchVideos",
     type: "event",
     //now emits, emits an event which need to be triggered by something, which will be based on something, and it will be based on subscribe
@@ -115,6 +115,10 @@ export const handler = async (eventData: any, {emit, logger, state}:any )=>{
         return;//we coulda not returned but there's no code below so anyways
 
         //now in next commit we'll work on the next step where gpt/gemini will generate the titles for us.
+        // now go to google and search openai api compatible for gemini, and when you open the docs(gemini), there you can see that,
+        //we'll be using everything according to openai(client), importing everything from openai, but in api key we can provide gemini_api_key, and also the baseUrl you gotta give the gemini model's url
+        //and that's it. those options exist in the openai object itself, so yeah you just need to change that.
+        // now go to step-4
 
     } catch (error: any) {
         logger.error("Error fetching Videos",{
