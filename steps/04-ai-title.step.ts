@@ -235,4 +235,4 @@ Respond in JSON format:
         })
     }
 }
-// now we have generated titles, now we just gotta send the email through resend in step-04
+// now we have generated titles, now we just gotta send the email through resend in step-05
